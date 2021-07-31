@@ -1,13 +1,18 @@
 'use strict';
-const specialCategoryPurchases = 250000;
-const specialCategoryPercent = 0.03;
-const otherCategoryPurchases = 700000;
-const otherCategoryPercent = 0.01;
-const specialCategoryCashback = specialCategoryPurchases * specialCategoryPercent;
-const otherCategoryCashback = otherCategoryPurchases * otherCategoryPercent;
-let totalCashback = specialCategoryCashback + otherCategoryCashback;
-const limit = 15000;
-if (totalCashback > limit){
-    totalCashback = limit;
+function calculateCashback(specialCategoryPurchases, otherCategoryPurchases){
+    const specialCategoryPercent = 0.03;
+    const otherCategoryPercent = 0.01;
+    const specialCategoryCashback = specialCategoryPurchases * specialCategoryPercent;
+    const otherCategoryCashback = otherCategoryPurchases * otherCategoryPercent;
+    let totalCashback = specialCategoryCashback + otherCategoryCashback;
+    const limit = 10000;
+    return {
+        specialCategoryCashback,
+        otherCategoryCashback,
+        totalCashback: totalCashback > limit ? limit : totalCashback,
+    };
 }
-console.log(totalCashback);
+// const specialCategoryPurchases = 250000;
+// const otherCategoryPurchases = 700000;
+const cashback = calculateCashback(5000, 10000);
+console.log(cashback);
