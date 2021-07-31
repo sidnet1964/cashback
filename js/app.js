@@ -1,3 +1,4 @@
+'use strict';
 const specialCategoryPurchases = 250000;
 const specialCategoryPercent = 0.03;
 const otherCategoryPurchases = 700000;
