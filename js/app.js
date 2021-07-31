@@ -16,6 +16,50 @@ function calculateCashback(specialCategoryPurchases, otherCategoryPurchases){
 // const otherCategoryPurchases = 700000;
 const cashback = calculateCashback(5000, 10000);
 console.log(cashback);
+function handleSubmit(evt){
+    evt.preventDefault();
+
+    const specialAmountInputEl = document.getElementById('special-amount-input');
+    const specialAmount = Number(specialAmountInputEl.value);
+    if (Number.isNaN(specialAmount)){
+        // TODO: show error
+        return;
+    }
+    if (!Number.isFinite(specialAmount)){
+        // TODO: show error
+        return;
+    }
+
+    const otherAmountInputEl = document.getElementById('other-amount-input');
+    const otherAmount = Number(otherAmountInputEl.value);
+    if (Number.isNaN(otherAmount)){
+        // TODO: show error
+        return;
+    }
+    if (!Number.isFinite(otherAmount)){
+        // TODO: show error
+        return;
+    }
+
+    const result = calculateCashback(specialAmount, otherAmount);
+    const specialCashbackEl = document.getElementById('special-cashback');
+    specialCashbackEl.textContent = `${result.specialCategoryCashback} руб.`;
+    const otherCashbackEl = document.getElementById('other-cashback');
+    otherCashbackEl.textContent = `${result.otherCategoryCashback} руб.`;
+    const totalCashbackEl = document.getElementById('total-cashback');
+    totalCashbackEl.textContent = `${result.totalCashback} руб.`;
+}
+
+const formEl = document.getElementById('cashback-form');
+formEl.onsubmit = handleSubmit;
 //  number - только числа, добавляет стрелки для +1/-1
 //  checkbox - квадратик для птички
 //  radio - кружочек для точки
+//  $(`#cashback-form`).on... - события формы
+//  const formE1 = $(`#cashback-form`)
+//  undefined
+//  monitorEvents(formE1, 'click')
+//  undefined
+// VM9:1 click PointerEvent {isTrusted: true, pointerId: 0, width: 1, height: 1, pressure: 0, …}
+// VM9:1 click PointerEvent {isTrusted: true, pointerId: 0, width: 1, height: 1, pressure: 0, …}
+// VM9:1 click PointerEvent {isTrusted: true, pointerId: 0, width: 1, height: 1, pressure: 0, …}
