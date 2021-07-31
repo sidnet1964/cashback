@@ -16,3 +16,6 @@ function calculateCashback(specialCategoryPurchases, otherCategoryPurchases){
 // const otherCategoryPurchases = 700000;
 const cashback = calculateCashback(5000, 10000);
 console.log(cashback);
+//  number - только числа, добавляет стрелки для +1/-1
+//  checkbox - квадратик для птички
+//  radio - кружочек для точки
